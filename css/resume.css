@@ -1,31 +1,94 @@
 *
 {
- 	font-family: 'FontAwesome';
+	font-family: 'FontAwesome';
+
 }
 
 .box-50
 {   
-	width:50%;
-	float:left;
-	
-}
- #hed
-{
-	text-align: right;
+	width:60%;
+	float:right;
+	text-align: left;text-indent: 300px;
 }
 
 
 .container
- {
- 	margin-left: 50px;
- 	margin-right: 50px;
- }
- hr
 {
-	color:gray;    
-	border:2px double gray;
+	margin-left: 50px;
+	margin-right: 50px;
+
 }
 
+
+
+h3
+{
+	color:#333366;
+	text-align:right: 
+
+
+}
+h1
+{
+	width: 40%;
+	color: #330066;
+	text-align: left;
+	float: right;
+	margin-top: 79px;
+
+}
+h2
+{
+	color:white;
+	background-color:#330066; 
+	text-align:left;
+}
+h4
+{
+	color:#333366;
+	font-weight: bold;
+	display:inline;
+
+}
+
+
+#top-margin
+{
+	margin-top: 130px;
+	border:double #330066;
+}
+hr
+{
+
+	border:1px solid #330066;
+	margin-top: -17px;
+	margin-bottom: 25px;
+
+}
+
+table
+{
+	text-align: center;
+	border: 3px solid #330066;
+	border-spacing:2px;
+	margin-left:120px;
+}
+th
+{
+	border:2px solid #330066;
+	text-align: left;
+
+}
+td
+{
+	border:1px solid #330066;
+	text-align: left;
+	padding:6px;
+}
+p
+{
+	text-indent:30px;
+}
 /*a:link
 {
    color:green;
@@ -39,43 +102,4 @@ a:visited
 a:hover
 {
 	color:red;
-}*/
-
-h4
-{
-	color:gray;
-	font-weight: bold;
-	display:inline;
-}
-h1
-{
-	color: gray;
-	text-align:center;
-	position: relative;
-}
-h3
-{
-	color:gray;
-}
-
-table
-{
-	text-align: center;
- 	border: 3px solid gray;
- 	border-spacing:4px;
- 	margin-left:120px;
-}
-th
-{
-	border:2px solid gray;
-	text-align: left;
-}
-td
-{
-	border:1px solid gray;
-	text-align: left;
-}
-p
-{
-	text-indent:30px;
-}
+	}*/
