@@ -1,0 +1,97 @@
+*
+{
+	font-family: 'FontAwesome';
+
+}
+
+.box-50
+{   
+	width: 30%;
+	float: right;
+	text-align: left;
+	margin-top: 50px;
+}
+
+.container
+{
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+h5
+{
+	color: #333366;
+	text-align: right: 
+}
+h1
+{
+	width: 70%;
+	color: #330066;
+	text-align: left;
+	float: right;
+	margin-top: 90px;
+
+}
+h2
+{
+	color: white;
+	background-color: #330066; 
+	text-align: left;
+	margin: 0;
+}
+h4
+{
+	color: #333366;
+	font-weight: bold;
+	display: inline;
+}
+#top-margin
+{
+	margin-top: 130px;
+	border:double #330066;
+}
+hr
+{
+	border:1px solid #330066;
+	margin-top: 2px;
+	margin-bottom: 25px;
+}
+
+table
+{
+	text-align: center;
+	border: 3px solid #330066;
+	border-spacing: 2px;
+	margin-left: 120px;
+	margin-bottom: 30px;
+}
+th
+{
+	border: 2px solid #330066;
+	text-align: left;
+
+}
+td
+{
+	border: 1px solid #330066;
+	text-align: left;
+	padding: 6px;
+}
+p
+{
+	text-indent: 30px;
+}
+/*a:link
+{
+   color:green;
+}
+a:visited
+{
+   color:red;
+
+
+}
+a:hover
+{
+	color:red;
+	}*/

@@ -1,0 +1,23 @@
+.container
+{
+	border: 3px solid gray;
+	margin-right: 30px;
+	padding-left:85px; 
+	padding-top:8px;
+}
+div
+{
+	width:11%;
+	height:75px;
+	margin:4px solid gray ;
+	display:inline-block;
+}
+
+.black
+{
+	background-color:black;
+}
+.white
+{
+	background-color:#900000;
+}
