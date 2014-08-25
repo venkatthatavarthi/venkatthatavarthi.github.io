@@ -1,23 +1,21 @@
 .container
 {
-	border: 3px solid gray;
-	margin-right: 30px;
-	padding-left:85px; 
-	padding-top:8px;
 }
-div
-{
-	width:11%;
-	height:75px;
-	margin:4px solid gray ;
-	display:inline-block;
-}
-
 .black
 {
-	background-color:black;
+	width: 80px;
+	height: 80px;
+	background-color:#800000 ;
+
 }
 .white
 {
-	background-color:#900000;
+	width:80px;
+	height:80px;
+	background-color: #FFF8DC;
+}
+
+table{
+	margin-left: 250px;
+	border: 10px ridge #260000;
 }
