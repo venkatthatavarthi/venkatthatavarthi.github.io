@@ -33,7 +33,7 @@ var piecePosition= {"1a":"brook",
 "7h":"wpawn"};
 var fromPosition='';
 var gameHistory=[];
-var clicks='';
+
 $(document).ready(function(event){
 	board();
 	setBoard(piecePosition);	
@@ -46,45 +46,45 @@ $(document).ready(function(event){
 				$.extend(cloned, piecePosition);
 				gameHistory.push(cloned);          	 
 				displayPosition("from",this.className,''); 
-			}	
-			else {alert("NoCoin");}		}
-			else {			
-				piecePosition[this.className] = piecePosition[fromPosition];
-				var cloned1 = piecePosition; 
-				$.extend(cloned1, piecePosition);    	
-				gameHistory.push(cloned1);          	
-				delete piecePosition[fromPosition];
-				$("." + fromPosition).html("");
-				$("." + this.className).html("<img src=images/" + piecePosition[this.className] + " />");
-				fromPosition = '';                      
-				var toPosition=this.className;
-				displayPosition("row",this.className,piecePosition[this.className]);							           			
+		   }	
+		   else {alert("NoCoin");}	
+		}
+		else {			
+			piecePosition[this.className] = piecePosition[fromPosition];
+			var cloned1 = piecePosition; 
+			$.extend(cloned1, piecePosition);    	
+			gameHistory.push(cloned1);          	
+			delete piecePosition[fromPosition];
+			$("." + fromPosition).html("");
+			$("." + this.className).html("<img src=images/" + piecePosition[this.className] + " />");
+			fromPosition = '';                      
+			var toPosition=this.className;
+			displayPosition("row",this.className,piecePosition[this.className]);							           			
 			}
-		});		
-	$(":button").click(function(){		
-		var clicks=gameHistory.length;
+	});
+	var clicks=gameHistory.length;
+	$(":button").click(function(){
+		 
+		setBoard(gameHistory['']);						
 		setBoard(gameHistory[clicks]);
 		clicks--; 		
-	});	
-	
+	});
+		
 });
 
 var board=function(){
 	for(var i=1;i<=8;i++){
 		$("#board").append("<tr>"+"</tr>");
 		for(a in arr){
-			$( "#board tr:last" ).append("<td class=" + i + arr[a] + ">"+"</td>");
-		}
+			$( "#board tr:last" ).append("<td class=" + i + arr[a] + ">"+"</td>");}
 	}
 }
-var setBoard=function(newPieces)
-{
+var setBoard=function(newPieces){	
 	for(var key in newPieces){
 		$("." + key).html("<img src=images/" + newPieces[key] + " />");
 	}
 }
-var displayPosition=function(pos,position,coin)
-{	
+var displayPosition=function(pos,position,coin){	
 	$("#"+pos).html("'"+position+"'"+coin+"\n");
 	if(coin.charAt(0)==='w'){$("#move").html("black"+"\t");}
 	else{$("#move").html("white"+"\t");}
