@@ -1,0 +1,25 @@
+.container
+{
+	border:2px groove green;
+	width:15.8%;
+	float: center ;
+
+	height:160px;
+}
+
+
+td{
+	
+
+ background: #333333;
+}
+#numbers
+{
+	width: 0px;
+	height: 0px;
+}
+#signs
+{
+	
+	padding-left: 130;
+}

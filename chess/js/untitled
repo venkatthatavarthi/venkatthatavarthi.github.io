@@ -1,0 +1,21 @@
+/*
+			switch(coin)
+			{
+				case "pawn":if()
+					break;
+				case "knight":
+					break;
+				case "king":
+					break;
+				case "bishop":
+					break;
+				case "queen":
+					break;
+				case "rook":
+					break;
+				default:
+						alert("wrong click")
+					break;
+						
+			}*/
+			/**/		
