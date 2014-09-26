@@ -40,37 +40,38 @@ $(document).ready(function(){
 	board();
 	setBoard();
 	$("td").click(function(){				
-		var newPosition=this.className;				
-		if(!playerPiece) {
-			if(currentPosition.hasOwnProperty(newPosition)){			
+		var newPosition=this.className;
+		//if not a fromPosition then continue				
+		if(!fromPosition) {
+			//if this is the own property of current postion then place the from position
+		   if(currentPosition.hasOwnProperty(newPosition)){			
 				fromPosition= this.className;										
 		   }	
-		   else {}	
-		   	
+		   else {alert("no coin");	}			   	
 		}
+		//position is null go though this
 		else {			
 			var cloned={};
-				$.extend(cloned, currentPosition);
-				gameHistory.push(cloned);	
+			$.extend(cloned, currentPosition);
+			gameHistory.push(cloned);	
 			currentPosition[this.className] = currentPosition[fromPosition];
 			delete currentPosition[fromPosition];					
 			$("." + fromPosition).html("");
 			$("." + this.className).html("<img src=images/" + currentPosition[this.className] + " />");
 			displayPosition(fromPosition,this.className,currentPosition[this.className]);	
-			//fromPosition = ''; 	
-			playerPiece=currentPosition[this.className].charAt(0);		
-									           					}
-									           				
+			fromPosition = ''; 	
+			//playerPiece=currentPosition[this.className].charAt(0);		
+			}									           				
 	});		
 	$(":button").click(function(){
 		// clear pieces on screen
-			for(var key in currentPosition){				
-				$("."+key).html("");													
-			}
-			// replace currentPosition by gameHistory
-			currentPosition=gameHistory[gameHistory.length-1];
-			setBoard();
-			gameHistory.length--;						
+		for(var key in currentPosition){				
+			$("."+key).html("");													
+		}
+		// replace currentPosition by gameHistory
+		currentPosition=gameHistory[gameHistory.length-1];
+		setBoard();
+		gameHistory.length--;						
 	});		
 });
 //display board function
