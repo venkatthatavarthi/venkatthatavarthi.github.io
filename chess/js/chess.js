@@ -34,33 +34,34 @@ var currentPosition= {"1a":"brook",
 var fromPosition='';
 playerPiece='b';
 var gameHistory=[];
-
 $(document).ready(function(){
 	var clack=gameHistory.length;	
 	board();
 	setBoard();
-	$("td").click(function(){				
-		var newPosition=this.className;
+	$("td").click(function(){						
 		//if not a fromPosition then continue				
-		if(!fromPosition) {
+		if(!fromPosition){			
 			//if this is the own property of current postion then place the from position
-		   if(currentPosition.hasOwnProperty(newPosition)){			
-				fromPosition= this.className;										
+		   if(currentPosition.hasOwnProperty(this.className)&&currentPosition[this.className].charAt(0)!=playerPiece){
+		   fromPosition= this.className;
+		   playerPiece=currentPosition[this.className].charAt(0);															
 		   }	
 		   else {alert("no coin");	}			   	
 		}
 		//position is null go though this
-		else {			
+		else {	
+			//present position pushing on the history		
 			var cloned={};
 			$.extend(cloned, currentPosition);
-			gameHistory.push(cloned);	
+			gameHistory.push(cloned);
+			//update the new position with child element and clear frompostion key and html	
 			currentPosition[this.className] = currentPosition[fromPosition];
 			delete currentPosition[fromPosition];					
 			$("." + fromPosition).html("");
 			$("." + this.className).html("<img src=images/" + currentPosition[this.className] + " />");
 			displayPosition(fromPosition,this.className,currentPosition[this.className]);	
 			fromPosition = ''; 	
-			//playerPiece=currentPosition[this.className].charAt(0);		
+					
 			}									           				
 	});		
 	$(":button").click(function(){
