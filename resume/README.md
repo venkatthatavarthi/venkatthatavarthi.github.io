@@ -1,2 +1,0 @@
-venkatthatavarthi.github.io
-===========================
