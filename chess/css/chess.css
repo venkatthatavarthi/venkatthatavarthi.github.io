@@ -27,10 +27,11 @@ img:visited{
 	margin-left:100px;
 	float: left;	
 }
-#info td,#info tr {	
+#info td,#info  {	
    padding-right: 30px;
    border: 2px solid black;
    width:100%;
+
    color:blue;
 }
 #info,#moves{

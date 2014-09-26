@@ -1,12 +1,12 @@
 var arr = ['a','b','c','d','e','f','g','h'];
-var piecePosition= {"1a":"brook",
+var currentPosition= {"1a":"brook",
 "1b":"bknight",
 "1c":"bbishop",
 "1d":"bking",
 "1e":"bqueen",
-"1f":"brook",
+"1f":"bbishop",
 "1g":"bknight",
-"1h":"bbishop",
+"1h":"brook",
 "2a":"bpawn",
 "2b":"bpawn",
 "2c":"bpawn",
@@ -20,9 +20,9 @@ var piecePosition= {"1a":"brook",
 "8c":"wbishop",
 "8d":"wking",
 "8e":"wqueen",
-"8f":"wrook",
+"8f":"wbishop",
 "8g":"wknight",
-"8h":"wbishop",
+"8h":"wrook",
 "7a":"wpawn",
 "7b":"wpawn",
 "7c":"wpawn",
@@ -32,46 +32,48 @@ var piecePosition= {"1a":"brook",
 "7g":"wpawn",
 "7h":"wpawn"};
 var fromPosition='';
+playerPiece='b';
 var gameHistory=[];
 
-$(document).ready(function(event){
+$(document).ready(function(){
+	var clack=gameHistory.length;	
 	board();
-	setBoard(piecePosition);	
+	setBoard();
 	$("td").click(function(){				
-		var currentPosition=this.className;			
-		if(!fromPosition) {
-			if(piecePosition.hasOwnProperty(currentPosition)){			
-				fromPosition= this.className;	
-				var cloned={}
-				$.extend(cloned, piecePosition);
-				gameHistory.push(cloned);          	 
-				displayPosition("from",this.className,''); 
+		var newPosition=this.className;				
+		if(!playerPiece) {
+			if(currentPosition.hasOwnProperty(newPosition)){			
+				fromPosition= this.className;										
 		   }	
-		   else {alert("NoCoin");}	
+		   else {}	
+		   	
 		}
 		else {			
-			piecePosition[this.className] = piecePosition[fromPosition];
-			var cloned1 = piecePosition; 
-			$.extend(cloned1, piecePosition);    	
-			gameHistory.push(cloned1);          	
-			delete piecePosition[fromPosition];
+			var cloned={};
+				$.extend(cloned, currentPosition);
+				gameHistory.push(cloned);	
+			currentPosition[this.className] = currentPosition[fromPosition];
+			delete currentPosition[fromPosition];					
 			$("." + fromPosition).html("");
-			$("." + this.className).html("<img src=images/" + piecePosition[this.className] + " />");
-			fromPosition = '';                      
-			var toPosition=this.className;
-			displayPosition("row",this.className,piecePosition[this.className]);							           			
-			}
-	});
-	var clicks=gameHistory.length;
+			$("." + this.className).html("<img src=images/" + currentPosition[this.className] + " />");
+			displayPosition(fromPosition,this.className,currentPosition[this.className]);	
+			//fromPosition = ''; 	
+			playerPiece=currentPosition[this.className].charAt(0);		
+									           					}
+									           				
+	});		
 	$(":button").click(function(){
-		 
-		setBoard(gameHistory['']);						
-		setBoard(gameHistory[clicks]);
-		clicks--; 		
-	});
-		
+		// clear pieces on screen
+			for(var key in currentPosition){				
+				$("."+key).html("");													
+			}
+			// replace currentPosition by gameHistory
+			currentPosition=gameHistory[gameHistory.length-1];
+			setBoard();
+			gameHistory.length--;						
+	});		
 });
-
+//display board function
 var board=function(){
 	for(var i=1;i<=8;i++){
 		$("#board").append("<tr>"+"</tr>");
@@ -79,14 +81,15 @@ var board=function(){
 			$( "#board tr:last" ).append("<td class=" + i + arr[a] + ">"+"</td>");}
 	}
 }
-var setBoard=function(newPieces){	
-	for(var key in newPieces){
-		$("." + key).html("<img src=images/" + newPieces[key] + " />");
+//fix pieces
+var setBoard=function(){
+	for(var key in currentPosition){				
+		$("." + key).html("<img src=images/" + currentPosition[key] + " />");
 	}
 }
-var displayPosition=function(pos,position,coin){	
-	$("#"+pos).html("'"+position+"'"+coin+"\n");
-	if(coin.charAt(0)==='w'){$("#move").html("black"+"\t");}
-	else{$("#move").html("white"+"\t");}
+//display history
+var displayPosition=function(from,to,coin){	
+	var player=(coin.charAt(0)==='w') ?"white":"black";
+	$("#info tbody:last").append("<tr> <td> from:"+from+"; to:"+to+"</td>"+"<td>"+coin+"</td>"+"<td>"+player+"</td>"+"\n"+"</tr>");	
 }
 
