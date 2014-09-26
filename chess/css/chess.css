@@ -1,9 +1,4 @@
-#board td,img{
-	width:80px;
-	height:68px;
-	border-style: ridge;
-}
-#board tr:nth-child(even) td:nth-child(even),#board tr:nth-child(odd)	td:nth-child(odd){
+#board tr:nth-child(even) td:nth-child(even), #board tr:nth-child(odd)	td:nth-child(odd){
 	background-color: #FFF8DC;		
 }
 #board tr:nth-child(even) td:nth-child(odd),#board tr:nth-child(odd) td:nth-child(even){
@@ -12,6 +7,11 @@
 #board tr td:hover{
 	opacity: 0.5;
 	filter: alpha(opacity=50);
+}
+#board td,img{
+	width: 80px;
+	height: 68px;
+	border-style: ridge;
 }
 img{
 	width:100%;
@@ -30,12 +30,11 @@ img:visited{
 #info td,#info  {	
    padding-right: 30px;
    border: 2px solid black;
-   width:100%;
-
-   color:blue;
+   width: 100%;
+   color: blue;
 }
 #info,#moves{
-	width:10%;	
+	width: 10%;	
 	display: inline;
 	padding-right: 200px;
 }

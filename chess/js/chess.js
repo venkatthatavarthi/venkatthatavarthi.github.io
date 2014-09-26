@@ -1,4 +1,4 @@
-var arr = ['a','b','c','d','e','f','g','h'];
+var subCol = ['a','b','c','d','e','f','g','h'];
 var currentPosition= {"1a":"brook",
 "1b":"bknight",
 "1c":"bbishop",
@@ -42,11 +42,11 @@ $(document).ready(function(){
 		//if not a fromPosition then continue				
 		if(!fromPosition){			
 			//if this is the own property of current postion then place the from position
-		   if(currentPosition.hasOwnProperty(this.className)&&currentPosition[this.className].charAt(0)!=playerPiece){
-		   fromPosition= this.className;
-		   playerPiece=currentPosition[this.className].charAt(0);															
-		   }	
-		   else {alert("no coin");	}			   	
+			if(currentPosition.hasOwnProperty(this.className)&&currentPosition[this.className].charAt(0)!=playerPiece){
+				fromPosition= this.className;
+				playerPiece=currentPosition[this.className].charAt(0);															
+			}	
+			else {alert("invalid move");}			   	
 		}
 		//position is null go though this
 		else {	
@@ -60,29 +60,28 @@ $(document).ready(function(){
 			$("." + fromPosition).html("");
 			$("." + this.className).html("<img src=images/" + currentPosition[this.className] + " />");
 			displayPosition(fromPosition,this.className,currentPosition[this.className]);	
-			fromPosition = ''; 	
-					
-			}									           				
+			fromPosition = ''; 						
+		}									           				
 	});		
-	$(":button").click(function(){
+$(":button").click(function(){
 		// clear pieces on screen
 		for(var key in currentPosition){				
 			$("."+key).html("");													
 		}
 		// replace currentPosition by gameHistory
-		currentPosition=gameHistory[gameHistory.length-1];
+		currentPosition=gameHistory[gameHistory.length-1];	
 		setBoard();
-		gameHistory.length--;						
+		gameHistory.length--;throw "last position";					
 	});		
 });
 //display board function
 var board=function(){
 	for(var i=1;i<=8;i++){
 		$("#board").append("<tr>"+"</tr>");
-		for(a in arr){
-			$( "#board tr:last" ).append("<td class=" + i + arr[a] + ">"+"</td>");}
+		for(a in subCol){
+			$( "#board tr:last" ).append("<td class=" + i + subCol[a] + ">"+"</td>");}
+		}
 	}
-}
 //fix pieces
 var setBoard=function(){
 	for(var key in currentPosition){				
