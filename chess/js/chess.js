@@ -105,6 +105,6 @@ var setBoard = function() {
 //display history
 var displayPosition = function(from, to, coin) {
   var player = (coin.charAt(0) === 'w') ? "white" : "black";
-  $("#info tbody:last").append("<tr> <td> from:" + from + "; to:" + to + "</td>" + "<td>" + coin + "</td>" + "<td>" + player + "</td>" + "\n" + "</tr>");
+  $("#info tbody:last").append("<tr> <td> " + from + " -> " + to + "</td>" + "<td>" + coin + "</td>" + "<td>" + player + "</td>" + "\n" + "</tr>");
 }
 
