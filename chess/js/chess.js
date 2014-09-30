@@ -32,13 +32,15 @@ var currentPosition= {"1a":"brook",
 "7g":"wpawn",
 "7h":"wpawn"};
 var fromPosition='';
-playerPiece='b';
+var playerPiece='b';
 var gameHistory=[];
+
 $(document).ready(function(){
 	var clack=gameHistory.length;	
 	board();
 	setBoard();
-	$("td").click(function(){						
+	$("td").click(function(){
+
 		//if not a fromPosition then continue				
 		if(!fromPosition){			
 			//if this is the own property of current postion then place the from position
@@ -62,18 +64,26 @@ $(document).ready(function(){
 			displayPosition(fromPosition,this.className,currentPosition[this.className]);	
 			fromPosition = ''; 						
 		}									           				
-	});		
+	});	
 $(":button").click(function(){
+	if(gameHistory.length===0){
+		alert('No moves to undo');
+		return;
+	}
 		// clear pieces on screen
+		
 		for(var key in currentPosition){				
 			$("."+key).html("");													
-		}
+		}		
 		// replace currentPosition by gameHistory
-		currentPosition=gameHistory[gameHistory.length-1];	
-		setBoard();
-		gameHistory.length--;throw "last position";					
-	});		
+		currentPosition=gameHistory[gameHistory.length-1];		
+		setBoard();	
+		gameHistory.length--;
+			
 });
+
+});		
+
 //display board function
 var board=function(){
 	for(var i=1;i<=8;i++){
