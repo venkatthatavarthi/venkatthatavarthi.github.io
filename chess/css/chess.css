@@ -9,9 +9,9 @@
 	filter: alpha(opacity=50);
 }
 #board td,img{
-	width: 71px;
-	height: 71px;
-	border: 2px ridge #800000 ;
+	width: 50px;
+	height: 72px;
+	border: 4px ridge #800000 ;
 }
 #board
 {

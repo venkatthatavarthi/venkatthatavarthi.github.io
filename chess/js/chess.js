@@ -1,4 +1,4 @@
-var subCol = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+var colName = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 var currentPosition = {
   "1a": "brook",
   "1b": "bknight",
@@ -33,17 +33,16 @@ var currentPosition = {
   "7g": "wpawn",
   "7h": "wpawn"
 };
-var fromPosition = '';
+var fromPosition ='';
 var playerPiece = 'b';
 var gameHistory = [];
 
-$(document).ready(function() {
-  var clack = gameHistory.length;
+$(document).ready(function() {  
   board();
   setBoard();
   $("td").click(function() {
 
-    //if not a fromPosition then continue				
+    //if it is not a fromPosition then continue				
     if (!fromPosition) {
       //if this is the own property of current postion then place the from position
       if (currentPosition.hasOwnProperty(this.className) && currentPosition[this.className].charAt(0) != playerPiece) {
@@ -91,8 +90,10 @@ $(document).ready(function() {
 var board = function() {
   for (var i = 1; i <= 8; i++) {
     $("#board").append("<tr>" + "</tr>");
-    for (a in subCol) {
-      $("#board tr:last").append("<td class=" + i + subCol[a] + ">" + "</td>");
+    //get the index of subcol
+    for (a in colName) {
+    //filtering tr last element and appending
+      $("#board tr:last").append("<td class=" + i + colName[a] + ">" + "</td>");
     }
   }
 }
@@ -107,4 +108,3 @@ var displayPosition = function(from, to, coin) {
   var player = (coin.charAt(0) === 'w') ? "white" : "black";
   $("#info tbody:last").append("<tr> <td> " + from + " -> " + to + "</td>" + "<td>" + coin + "</td>" + "<td>" + player + "</td>" + "\n" + "</tr>");
 }
-
