@@ -79,6 +79,7 @@ $(document).ready(function() {
     }
     // replace currentPosition by gameHistory
     currentPosition = gameHistory[gameHistory.length - 1];
+    $('#info tr:last').remove();
     setBoard();
     gameHistory.length--;
 

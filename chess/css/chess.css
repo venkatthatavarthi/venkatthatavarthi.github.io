@@ -11,10 +11,12 @@
 #board td,img{
 	width: 50px;
 	height: 72px;
+
 	border: 4px ridge #800000 ;
 }
 #board
 {
+	table-layout:fixed ;	
 	border: 6px ridge black ;
 }
 img{
