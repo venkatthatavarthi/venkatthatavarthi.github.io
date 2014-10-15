@@ -1,4 +1,4 @@
-<%=@user.errors.inspect unless @user.errors.empty? %> 
+
 
 <%= form_for @user do |f| %>
   <h3>Chess Game Signup </h3>
@@ -9,3 +9,14 @@
   IMAGE:  <%= f.text_field :user_name ,:class => 'field'%><br /> <br/>
   <%= f.submit 'CREATE USER' ,:class => 'button' %>
 <% end %>
+
+	<% unless @user.errors.empty? %>
+       <p>Your comment could not be saved because:</p>
+       <ul>
+          <% @user.errors.each do |msg| %>
+            <li><%= msg %></li>
+          <%  end %>
+       </ul>
+    <% end %>
+
+

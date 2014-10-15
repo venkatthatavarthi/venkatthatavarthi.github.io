@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-	
+	def index 
+		@board = Board
+	end
 	def new
 		@user = User.new()
 	end
