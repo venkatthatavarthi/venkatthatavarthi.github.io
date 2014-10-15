@@ -1,0 +1,11 @@
+<%=@user.errors.inspect unless @user.errors.empty? %> 
+
+<%= form_for @user do |f| %>
+  <h3>Chess Game Signup </h3>
+  NAME: <%=f.text_field :name ,:class => 'field' %><br /><br />
+  USER NAME: <%= f.text_field :user_name ,:class => 'field'%><br /> <br/>
+  PASSWORD:  <%= f.password_field :password_field ,:class => 'field'%><br /> <br />
+  RE-PASSWORD:  <%= f.password_field :password_confirmation ,:class => 'field'%><br /> <br />
+  IMAGE:  <%= f.text_field :user_name ,:class => 'field'%><br /> <br/>
+  <%= f.submit 'CREATE USER' ,:class => 'button' %>
+<% end %>

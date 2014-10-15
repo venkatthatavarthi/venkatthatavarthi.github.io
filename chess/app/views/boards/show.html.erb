@@ -1,0 +1,28 @@
+<script>
+//here assign the piece_postion value of current move
+var currentPosition = <%= @board.piece_position.html_safe %>;
+var playerPiece= '<%= @board.current_player %>';
+
+</script>
+
+<%= javascript_include_tag 'chess', 'data-turbolinks-track' => false %>
+
+<table id="board" class=" col-xs-7 "></table>		
+<table id="info" class=" col-xs-3 table-striped table-bordered table-condensed " >	  
+<tbody >									
+	<tr>															
+	<td>Position</td>
+	<td >Coin</td>
+	<td >Player</td>				
+	</tr>					
+</tbody>
+			
+</table>
+<%= form_for @board do |f| %>
+  <%= f.text_area :piece_position%>
+   <%= f.text_area :current_player%>
+  <%= f.submit "Submit" %>
+ <% end %>
+
+
+  
