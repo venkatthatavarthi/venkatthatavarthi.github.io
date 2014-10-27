@@ -11,16 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014102405) do
+ActiveRecord::Schema.define(version: 20141027104607) do
 
-# Could not dump table "boards" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "user_name"
-    t.string   "password"
-    t.binary   "image"
+  create_table "boards", force: true do |t|
+    t.text     "piece_position"
+    t.string   "current_player", default: "b"
+    t.string   "board_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

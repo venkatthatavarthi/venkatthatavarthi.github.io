@@ -1,6 +1,3 @@
-.container-fluid{
-	background-image: url('/images/board.jpg');	
- }
 #board tr:nth-child(even) td:nth-child(even), #board tr:nth-child(odd)	td:nth-child(odd){
 	background-color: #FFF8DC;		
 }
@@ -13,7 +10,8 @@
 }
 #board td,img{
 	width: 50px;
-	height: 65px;
+	height: 72px;
+
 	border: 4px ridge #800000 ;
 }
 #board
@@ -28,47 +26,12 @@ img:visited{
 	opacity: 1.0;
 	filter: alpha(opacity=100);
 }
-.table_join
+
+#hidForm
 {
-    margin-left: 700px;	
- 	border: 3px ridge #000000;	
- 	border-radius: 40px;			
- }
-.table_join td{
-	border: 2px ridge #000000;	
-	padding-left: 30px; 
-	color: white;
-}
-h3{
-	text-indent: 40px;
-	color: #000000;
-}
-.new_user{
-	margin-top: 50px;
-	margin-left: 600px;	
-	border: 5px double #000000;	
-	border-radius: 10px;
-	padding-left: 20px;	
-	padding-top: 5px;
-	padding-bottom: 20px;
-	color: white;
-}
-.new_user .button{
-	margin-left: 80px;
-	background-color:  #971919;;
-	border: 2px ridge #000000;
-}
-.new_user .field{
-	float:right;
-	border-radius: 5px;
-	margin-right: 20px;
-	color: black;
-}
-.container-fluid a{
-	font-size: 20px;
-	color:white;
-}
-.login
-{
-	
+	margin-left: 800px;
+	margin-right: 100px;
+	border: 4px ridge #800000 ;
+	background-color: #FFF8DC;
+
 }

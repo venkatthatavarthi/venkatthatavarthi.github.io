@@ -1,18 +1,27 @@
-<%= link_to "Create New Game", new_board_path %>
-
-<!--<%= @boards.inspect %>-->
+<!--<%= link_to "Create Board", new_board_path%>-->
+<%= form_for @board do |f| %>
+  <%= f.text_field :board_name %>  
+  <%= f.submit "CREATE BOARD" %>
+ <% end %>
+<% unless @board.errors.empty? %>       
+       <ul>
+          <% @board.errors.each do |msg,ab| %>
+            <li ><%= msg %>:<%= ab%></li>
+          <%  end %>
+       </ul>
+<% end %>
 
 <table class="table_join">
 	<tr>
 		<td>id</td>
-		<td>join table </td>
+		<td>join</td>
 	</tr>
-	<%= paginate @boards %>
-	<%@boards.each do |p|%>
+	
+	<% @boards.each do |p|%>
 	<tr>
 		<td><%=p.id%></td>
-		<td><u><%= link_to "join", p %></u></td>
+		<td><u><%= link_to p.board_name, p %></u></td>
+		
 	</tr>	
 	<%end%>
 </table>
-

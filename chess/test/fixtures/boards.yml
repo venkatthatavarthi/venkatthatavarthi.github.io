@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  piece_position: MyString
+  piece_position: MyText
+  current_player: MyString
+  board_name: MyString
 
 two:
-  piece_position: MyString
+  piece_position: MyText
+  current_player: MyString
+  board_name: MyString

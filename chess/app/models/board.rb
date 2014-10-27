@@ -1,8 +1,7 @@
 class Board < ActiveRecord::Base
-	#serialize :piece_position
-
+	
 	before_create :set_piece_position
-
+	validates :board_name , uniqueness: true
 	private
 
 	def set_piece_position
